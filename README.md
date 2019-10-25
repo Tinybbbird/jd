@@ -91,5 +91,4 @@ node server.js
 ![](http://i.imgur.com/sIfHd0z.png)
 
 
-....未完待续 QQ交流群:526450553
 
