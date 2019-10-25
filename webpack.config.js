@@ -1,6 +1,6 @@
 var path = require('path')
 var webpack = require('webpack')
-
+const htmlWebpackPlugin = require('html-webpack-plugin')
 module.exports = {
     entry: './src/main.js',
     output: {
@@ -22,7 +22,7 @@ module.exports = {
             exclude: /node_modules/
         }, {
             test: /\.css$/,
-            loader: 'style-loader!css-loader'
+            use: ['style-loader', 'css-loader']
         }, {
             test: /\.less$/,
             loader: 'less-loader'
@@ -39,6 +39,11 @@ module.exports = {
             'vue$': 'vue/dist/vue.esm.js'
         }
     },
+    plugins: [ //设定要加载的插件
+        new htmlWebpackPlugin({
+          template: './index.html'
+        })
+      ],
     devServer: {
         historyApiFallback: true,
         noInfo: true
