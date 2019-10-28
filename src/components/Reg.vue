@@ -1,7 +1,7 @@
-<template>
+﻿<template>
 	<div class="m_r">
 		<header class="top_bar">
-		    <a onclick="window.history.go(-1)" class="icon_back"></a>
+		    <a onclick="window.history.go(-2)" class="icon_back"></a>
 		    <h3 class="cartname">京东注册</h3>
 		</header>
 		<main class="user_login_box">

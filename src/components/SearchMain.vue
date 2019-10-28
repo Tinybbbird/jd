@@ -1,7 +1,7 @@
-<template>
+﻿<template>
 	<div class="search_ma">
 	<header class="top_bar">
-	        <a onclick="window.history.go(-1)" class="icon_back"></a>
+	        <a onclick="window.history.go(-2)" class="icon_back"></a>
 	        <form  class="goods_search" v-on:submit.prevent>
 	            <input type="saerch" class="goods_search_content" placeholder="搜索" v-model="keyword" @keyup.enter="goSearch($event)">
 	        </form>
