@@ -86,9 +86,6 @@ node server.js
 
 ![](http://i.imgur.com/m2H0mLg.png)
 
-![](http://i.imgur.com/8GpE1qc.png)
-
-![](http://i.imgur.com/sIfHd0z.png)
 
 
 
