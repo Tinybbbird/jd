@@ -1,15 +1,15 @@
 <template>
 	<div id="cate_left">
-		 <div class="category_left">
-	            <ul class="childbox">
-	                <li class="" v-for="item in leftDatas">
-	                	<router-link :to="'/catgory/'+item.category_id">
-	                	{{item.category_name}}
-	                	</router-link>
-	                </li>
-	               
-	            </ul>
-	        </div>
+		<div class="category_left">
+						<ul class="childbox">
+								<li class="" v-for="(item,i) in leftDatas" :key="i">
+									<router-link :to="'/catgory/'+item.category_id">
+									{{item.category_name}}
+									</router-link>
+								</li>
+								
+						</ul>
+				</div>
 	</div>
 </template>
 <script>

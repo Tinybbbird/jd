@@ -19,8 +19,8 @@
 	            </li>
 	            <li class="p_price">
 	                <span>价格</span>
-	                <em class="price_up" @click="getByPriceUp()"></em>
-	                <em class="price_down" @click="getByPriceDown()"></em>
+	                <em class="price_up" @click="getByPriceUp()" v-show="state==0"></em>
+	                <em class="price_down" @click="getByPriceDown()" v-show="state==1"></em>
 	            </li>
 	            <li>
 	                <span>筛选</span>
@@ -61,7 +61,8 @@
 		data(){
 			return {
 				keyword:'',
-				mDatas:[]
+				mDatas:[],
+				state:0
 			}
 		},
 		methods:{
@@ -85,7 +86,7 @@
 						});
 					}
 				
-				 window.event? window.event.returnValue = false : event.preventDefault();
+				window.event? window.event.returnValue = false : event.preventDefault();
 			},
 			getbyHot(){
 				let _this = this;
@@ -109,13 +110,14 @@
 			},
 			getByPriceUp(){
 				let _this = this;
+				_this.state=1;
 				if(_this.keyword == ''){
 					alert('请输入商品名称');
 				}else{
 					_this.$http.get('/search',{
 						params:{
 							kw:_this.keyword,
-							hot:'hot',
+							hot:'',
 							priceUp:'priceUp',
 							priceDown:''
 						}
@@ -129,13 +131,14 @@
 			},
 			getByPriceDown(){
 				let _this = this;
+				_this.state=0;
 				if(_this.keyword == ''){
 					alert('请输入商品名称');
 				}else{
 					_this.$http.get('/search',{
 						params:{
 							kw:_this.keyword,
-							hot:'hot',
+							hot:'',
 							priceUp:'',
 							priceDown:'priceDown'
 						}

@@ -52,11 +52,11 @@
 							//LOGIN success
 							window.sessionStorage.userInfo = JSON.stringify(_this.userInfo);
 							console.log(_this.$store);
-							_this.$store.dispatch('setUserInfo', userInfo);
-                        let redirect = decodeURIComponent(_this.$route.query.redirect || '/');
-                        _this.$router.push({
-                            path: redirect
-                        });
+							_this.$store.dispatch('setUserInfo', _this.userInfo);
+							let redirect = decodeURIComponent(_this.$route.query.redirect || '/');
+							_this.$router.push({
+									path: redirect
+							});
 							
 						}else{
 							alert(_this.userInfo.msg);
@@ -71,6 +71,9 @@
 				}
 				
 			}
+		},
+		mounted(){
+			this.$store.dispatch('hideLoading')
 		}
 	}
 </script>

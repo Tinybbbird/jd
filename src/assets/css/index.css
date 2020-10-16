@@ -86,13 +86,13 @@ body {
 }
 
 .m_banner ul:first-child {
-    width: 1000%;
-    transform: translateX(-10px);
-    -webkit-transform: translateX(-10px);
+    width: 800%;
+    /* transform: translateX(-10px);
+    -webkit-transform: translateX(-10px); */
 }
 
 .m_banner ul:first-child li {
-    width: 10%;
+    width: 12.5%;
     float: left;
 }
 

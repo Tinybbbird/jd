@@ -41,7 +41,8 @@ axios.interceptors.response.use(function(response) { //配置请求回来的信�
 }, function(error) {
     return Promise.reject(error);
 });
-axios.defaults.baseURL = 'http://106.54.235.194:3333/';
+//axios.defaults.baseURL = 'http://106.54.235.194:3333/';
+axios.defaults.baseURL = 'http://127.0.0.1:3334/';
 axios.defaults.headers['Content-Type'] = 'application/x-www-form-urlencoded'
 Vue.prototype.$http = axios;
 /*axios.defaults.baseURL = (process.env.NODE_ENV !=='production' ? config.dev.httpUrl:config.build.httpUrl);

@@ -4,7 +4,7 @@ const common = require('../libs/common');
 const db = mysql.createPool({
     host: 'localhost',
     user: 'root',
-    password: '123456',
+    password: '',
     database: 'pro'
 });
 module.exports = () => {
@@ -61,11 +61,7 @@ module.exports = () => {
                 console.log(err);
                 res.status(500).send('database err').end();
             } else {
-                if (data.length == 0) {
-                    res.status(500).send('no datas').end();
-                } else {
-                    res.send(data);
-                }
+                res.send(data)
             }
         });
     }
@@ -152,7 +148,7 @@ module.exports = () => {
      *user reg func
      */
     route.post('/reg', (req, res) => {
-
+        console.log(req.body)
         let mObj = {};
         for (let obj in req.body) {
             mObj = JSON.parse(obj);
@@ -161,7 +157,14 @@ module.exports = () => {
         let regPasswd = mObj.regPasswd;
         regPasswd = common.md5(regPasswd + common.MD5_SUFFXIE);
         const insUserInfo = `INSERT INTO user(user_name,login_password,user_number) VALUES('${regName}','${regPasswd}','${regName}')`;
-        delReg(insUserInfo, res);
+        const checkName = `SELECT * FROM user WHERE user_name = '${regName}'`
+        db.query(checkName,(err,result)=>{
+            if(result.length==0)
+            delReg(insUserInfo, res);
+            else{
+                res.send({'msg':'用户名已存在','status':2}).end()
+            }
+        })
     });
     /*
      *deal user register

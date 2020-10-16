@@ -25,9 +25,8 @@ body {
     padding-top: 45px;
     background-color: #fff;
 }
-
-.category_content .category_left ul {}
-
+.category_content .category_left{position:fixed;overflow-y:auto;}
+.category_content .category_left::-webkit-scrollbar{display:none} 
 .category_content .category_left ul li {
     height: 50px;
     width: 90px;

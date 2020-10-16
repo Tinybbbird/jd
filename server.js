@@ -1,4 +1,4 @@
-const express = require('express');
+﻿const express = require('express');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const cookieSession = require('cookie-session');
@@ -18,8 +18,8 @@ server.all('*', function(req, res, next) {
         next();
     }
 });
-server.listen(3333, () => {
-    console.log("正在监听3333端口");
+server.listen(3334, () => {
+    console.log("正在监听3334端口");
 
 });
 

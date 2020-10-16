@@ -1,24 +1,23 @@
 <template>
 	<div id="cate_right">
 		<div class="category_right">
-	            <div class="category_banner">
-	                <a href="#">
-	                    <img src="../assets/images/banner_1.png" alt="">
-	                </a>
-	            </div>
-	            <div class="category_detail">
-	                <h3 class="category_n">Hot Category Goods</h3>
-	                <ul>
-	                    <li class="category_detail_item" v-for="item in cateGoodsData">
-	                        <router-link :to="'/detail/'+item.product_id"class="category_detail_item_link">
-	                            <img v-lazy="item.product_img_url" alt="" class="category_detail_item_pic">
-	                            <p class="category_detail_item_name">{{item.product_name}}</p>
-	                        </router-link>
-	                    </li>
-	                
-	                </ul>
-	            </div>
-	        </div>
+						<div class="category_banner">
+								<a href="#">
+										<img src="../assets/images/banner_1.png" alt="">
+								</a>
+						</div>
+						<div class="category_detail">
+								<h3 class="category_n">Hot Category Goods</h3>
+								<ul v-show="cateGoodsData.length > 0">
+										<li class="category_detail_item" v-for="(item,i) in cateGoodsData" :key="i">
+												<router-link :to="'/detail/'+item.product_id" class="category_detail_item_link">
+														<img v-lazy="item.product_img_url" alt="" class="category_detail_item_pic">
+														<p class="category_detail_item_name">{{item.product_name}}</p>
+												</router-link>
+										</li>
+								</ul>
+						</div>
+				</div>
 	</div>
 </template>
 <script>
@@ -50,6 +49,7 @@ export default{
 						mId: id
 					}
 				}).then((res)=>{
+					console.log(res.data)
 					_this.cateGoodsData = res.data;
 				},(err)=>{
 					console.log(err);
